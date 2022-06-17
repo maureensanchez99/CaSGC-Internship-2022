@@ -1,21 +1,19 @@
-:Author: maureensanchez99
-:Email: {AuthorEmail}
+:Authors: Maureen Sanchez, Andres Zamudio, Manuel Aboite 
 :Date: 23/04/2022
-:Revision: version#
 :License: Public Domain
 
-= Project: {Project}
+= Project: Astronaut Health Monitoring System for Long term Space Missions (Transmitter)
 
-Describe your project
+Create a monitoring health system for individuals to wear on long term space missions
+
+= Objective: 
+
+Constantly gather the data of an individual's vitals such as their heart rate, ECG (electrocardiogram), blood oxygen levels, and their body temperature. These measurements are then sent to another Arduino that displays this data. 
 
 == Step 1: Installation
-Please describe the steps to install this project.
 
-For example:
-
-1. Open this file
-2. Edit as you like
-3. Release to the World!
+1. Download the sketch (.ino) file and upload the file to your preferred IDE.
+2. Edit the code to fit the objective of your project. Such as modifying what sensors being used or the placement of the pins.    
 
 == Step 2: Assemble the circuit
 
@@ -28,15 +26,15 @@ Upload the code contained in this sketch on to your board
 === Folder structure
 
 ....
- sketch123                => Arduino sketch folder
-  ├── sketch123.ino       => main Arduino file
+ Transmitter                => Arduino sketch folder
+  ├── Transmitter.ino       => main Arduino file
   ├── schematics.png      => (optional) an image of the required schematics
   ├── layout.png          => (optional) an image of the layout
   └── ReadMe.adoc         => this file
 ....
 
 === License
-This project is released under a {License} License.
+This project is released under a MIT License.
 
 === Contributing
 To contribute to this project please contact maureensanchez99 https://id.arduino.cc/maureensanchez99
@@ -50,9 +48,3 @@ Add the bill of the materials you need for this project.
 | L1 | Red LED        | 2345-asdf   | 5
 | A1 | Arduino Zero   | ABX00066    | 1
 |===
-
-
-=== Help
-This document is written in the _AsciiDoc_ format, a markup language to describe documents.
-If you need help you can search the http://www.methods.co.nz/asciidoc[AsciiDoc homepage]
-or consult the http://powerman.name/doc/asciidoc[AsciiDoc cheatsheet]
