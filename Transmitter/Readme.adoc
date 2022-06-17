@@ -13,7 +13,7 @@ Constantly gather the data of an individual's vitals such as their heart rate, E
 == Step 1: Installation
 
 1. Download the sketch (.ino) file and upload the file to your preferred IDE.
-2. Edit the code to fit the objective of your project. Such as modifying what sensors being used or the placement of the pins.    
+2. Edit the code to fit the objective of your project. Such as modifying what sensors are being used or the placement of the pins.    
 
 == Step 2: Assemble the circuit
 
