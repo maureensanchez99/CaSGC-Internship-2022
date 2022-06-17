@@ -1,0 +1,50 @@
+:Authors: Maureen Sanchez, Andres Zamudio, Manuel Aboite 
+:Date: 23/04/2022
+:License: Public Domain
+
+= Project: Astronaut Health Monitoring System for Long term Space Missions (Receiver)
+
+Create a monitoring health system for individuals to wear on long term space missions
+
+= Objective: 
+
+This Arduino recieves measurements from another Arduino and then displays this data to a LCD disply. In addition this Arduino takes the measurements of the area's temperture and humidity to be displayed as well.   
+
+== Step 1: Installation
+
+1. Download the sketch (.ino) file and upload the file to your preferred IDE.
+2. Edit the code to fit the objective of your project. Such as modifying what sensors are being used or the placement of the pins.    
+
+== Step 2: Assemble the circuit
+
+Assemble the circuit following the diagram layout.png attached to the sketch
+
+== Step 3: Load the code
+
+Upload the code contained in this sketch on to your board
+
+=== Folder structure
+
+....
+ Receiver                => Arduino sketch folder
+  ├── Receiver.ino       => main Arduino file
+  ├── schematics.png      => (optional) an image of the required schematics
+  ├── layout.png          => (optional) an image of the layout
+  └── ReadMe.adoc         => this file
+....
+
+=== License
+This project is released under a MIT License.
+
+=== Contributing
+To contribute to this project please contact maureensanchez99 https://id.arduino.cc/maureensanchez99
+
+=== BOM
+Add the bill of the materials you need for this project.
+
+|===
+| ID | Part name      | Part number | Quantity
+| R1 | 10k Resistor   | 1234-abcd   | 10
+| L1 | Red LED        | 2345-asdf   | 5
+| A1 | Arduino Zero   | ABX00066    | 1
+|===
