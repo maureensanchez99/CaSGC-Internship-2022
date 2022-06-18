@@ -19,6 +19,6 @@ void setup() {
 
 void loop() {
   if (radio.available()){ //checks to see if radio is able to connect
-    radio.read(msg,1); //if so start recieving messages to perform
+    radio.read(msg,4); //if so start recieving messages to perform
   }
 }
