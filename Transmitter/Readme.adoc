@@ -28,9 +28,9 @@ Upload the code contained in this sketch on to your board
 ....
  Transmitter                => Arduino sketch folder
   ├── Transmitter.ino       => main Arduino file
-  ├── schematics.png      => (optional) an image of the required schematics
-  ├── layout.png          => (optional) an image of the layout
-  └── ReadMe.adoc         => this file
+  ├── schematics.png        => an image of the required schematics
+  ├── layout.png            => an image of the layout
+  └── ReadMe.adoc           => this file
 ....
 
 === License
