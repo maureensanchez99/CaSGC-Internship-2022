@@ -2,7 +2,7 @@
 ## Overview 
 This internship is part of a <a href="https://casgc.ucsd.edu/?page_id=7229">NASA program</a> for California Community Colleges to expand and retain students’ interested in STEM. Students use micro‐computers (Arduino or Raspberry Pi) to teach hardware, programming, robotics, logic, and teamwork.
 ## Project Objective
-The object of our project is to create an individual health monitoring system for astronauts on long haul missions using Arduinos and various sensors.   
+The objective of our project is to create an individual health monitoring system for astronauts on long haul missions using Arduinos and various sensors. With the development of this device, astronauts can see real time data on how their body is doing in response to their surrounding environment.
 
 ## Reference Projects  
 These are past Arduino projects that we referenced to when creating the hardware design, selecting our parts, and the code implemention of our project. 
