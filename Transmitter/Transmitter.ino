@@ -3,6 +3,8 @@ Created by Maureen Sanchez, Andres Zamudio, and Manuel Aboite
 Reference Code is cited in the README file of the repository. 
 */
 
+// needs to measure heart rate, blood oxygen levels, and recored the ECG/EKG
+
 #include <SPI.h>
 #include "RF24.h"
 RF24 radio(9,10);
