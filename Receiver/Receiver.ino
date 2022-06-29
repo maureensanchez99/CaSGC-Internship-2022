@@ -1,15 +1,22 @@
 /*
 Created by Maureen Sanchez, Andres Zamudio, and Manuel Aboite
-Reference Code is cited in the README file of the repository. 
+Reference Code is cited in the README file of the repository
+Purpose: receives data from transmitter Arduino, measures data from attached sensors, displays data onto LCD display 
 */
 
 #include <SPI.h>
+#include <nRF24L01.h>
 #include "RF24.h"
-RF24 radio(9,10);
+
+/*connected to digital pins (pins with a ~)
+used for setting module into standby or active mode
+switching between transmit or command mode */
+RF24 radio(9,10); 
 
 //constants 
-const uint64_t address = 0xF0F0F0F000LL; //address 
-double msg[4]; 
+const byte address = "00001"; //address 
+double msg[4]; //message that is being sent to the Aruino receiver with four different data values
+int msgSize = 4;
 
 void setup() {
   radio.begin(); //starts the radio module
@@ -19,6 +26,8 @@ void setup() {
 
 void loop() {
   if (radio.available()){ //checks to see if radio is able to connect
-    radio.read(msg,4); //if so start recieving messages to perform
+    for(int i = 0; i < msgSize; i++){
+      radio.read(msg, i); //start displaying data on LCD display
+    }
   }
 }
