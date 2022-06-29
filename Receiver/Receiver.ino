@@ -5,7 +5,6 @@ Purpose: receives data from transmitter Arduino, measures data from attached sen
 */
 
 #include <SPI.h>
-#include <nRF24L01.h>
 #include "RF24.h"
 
 /*connected to digital pins (pins with a ~)
@@ -16,7 +15,7 @@ RF24 radio(9,10);
 //constants 
 const byte address = "00001"; //address 
 double msg[4]; //message that is being sent to the Aruino receiver with four different data values
-int msgSize = 4;
+int msgSize = 4; //size of the message array
 
 void setup() {
   radio.begin(); //starts the radio module
