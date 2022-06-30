@@ -1,6 +1,6 @@
 # CaSGC Summer Internship 2022
 ## Overview 
-This internship is part of a <a href="https://casgc.ucsd.edu/?page_id=7229">NASA program</a> for California Community Colleges to expand and retain students’ interested in STEM. Students use micro‐computers (Arduino or Raspberry Pi) to teach hardware, programming, robotics, logic, and teamwork.
+This internship is part of a <a href="https://casgc.ucsd.edu/?page_id=7229">NASA program</a> for California Community Colleges and Hartnell's <a href="https://hartnellstem.org/the-program/">STEM Internship<a> program. The purpose of these programs are to expand and retain students’ interested in STEM. Students use micro‐computers (Arduino or Raspberry Pi) to teach hardware, programming, robotics, logic, and teamwork.
 ## Project Objective
 The objective of our project is to create an individual health monitoring system for astronauts on long haul missions using Arduinos and various sensors. With the development of this device, astronauts can see real time data on how their body is doing in response to their surrounding environment.
 
