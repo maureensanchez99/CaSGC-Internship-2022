@@ -6,6 +6,8 @@ Purpose: receives data from transmitter Arduino, measures data from attached sen
 
 #include <SPI.h>
 #include "RF24.h"
+#include <Wire.h>
+#include "MAX30105.h"
 
 /*connected to digital pins (pins with a ~)
 used for setting module into standby or active mode
@@ -25,8 +27,6 @@ void setup() {
 
 void loop() {
   if (radio.available()){ //checks to see if radio is able to connect
-    for(int i = 0; i < msgSize; i++){
-      radio.read(msg, i); //start displaying data on LCD display
-    }
+      radio.read(msg, msgSize); //start displaying data on LCD display
   }
 }
