@@ -1,8 +1,10 @@
 # CaSGC Summer Internship 2022
 ## Overview 
 This internship is part of the <a href="https://casgc.ucsd.edu/?page_id=7229">Calfornia Space Grant Consortium</a> and Hartnell College's <a href="https://hartnellstem.org/the-program/">STEM Internship<a> program. In this internship, students are placed into teams to use micro‐computers (Arduino or Raspberry Pi) to teach hardware, programming, robotics, logic, and teamwork.
-## Project Objective
-The objective of our project is to create an individual health monitoring system for astronauts on long haul missions using Arduinos and various sensors. With the development of this device, astronauts can see real time data on how their body is doing in response to their surrounding environment.
+## Project Abstract 
+On long term space missions, astronauts may not always have a physician on board to monitor their health and with the potential of longer space missions, knowing the current health status of the astronauts is vital to make sure that they are able to withstand these long journeys. With multiple sensors on an astronaut’s body that are then connected to an Arduino, we take the measurements of an individual’s heart rate, ECG (electrocardiogram), blood oxygen levels, and their body temperature. The measurements are then sent to another Arduino that also takes the measurements of the humidity and temperature of the surrounding area. Using this data, a LCD Display connected to the second arduino will constantly display the live data as it continually takes in the measurements of the individual and the surrounding area. 
+
+Having this data is crucial in ensuring that the health of the astronauts are not in decline and that themselves and others know of any drastic changes in their vitals. 
 
 ## Reference Projects  
 These are past Arduino projects that we referenced to when creating the hardware design, selecting our parts, and the code implemention of our project. 
