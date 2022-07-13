@@ -15,7 +15,7 @@ RF24 radio(9, 10);
 //constants 
 /*const byte address = "00001"; //address
 double msg[4]; //message that is being sent to the Aruino receiver with four different data values
-int msgSize = 4; //size of the message array*
+int msgSize = 4; //size of the message array*/
 int heartRateMonitorA = 5;
 int heartRateMonitorB = 6; 
 //A0 is where the heart rate sensors sends the data  
