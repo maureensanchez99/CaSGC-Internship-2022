@@ -17,8 +17,9 @@ RF24 radio(9,10);
 
 //constants and variables
 const byte address = "00001"; //address 
-double msg[4]; //message that is being sent to the Aruino receiver with four different data values
+double msg[1]; //message that is being sent to the Aruino receiver with four different data values
 int msgSize = 4; //size of the message array
+double ECG; //ECG value sent from transmitter 
 
 #define DHTPIN 7 //pin that DHT22 is connected to
 #define DHTTYPE DHT22
@@ -37,8 +38,10 @@ void setup() {
 
 void loop() {
   if (radio.available()){ //checks to see if radio is able to connect
-      radio.read(msg, msgSize); //start displaying data on LCD display
+      radio.read(msg, 1); //start displaying data on LCD display
   }
+  ECG = msg[0];
+  Serial.print(ECG);
   humidity = dht.readHumidity();
   temperature = dht.readTemperature();
 }
