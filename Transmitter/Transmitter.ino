@@ -50,6 +50,6 @@ void loop() {
     msg[0] = analogRead(A0);
   }
   //radio.write(msg, msgSize); //sends data to other Arduino
-  radio.write(msg,1);
+  radio.write(msg,1); //sending it off as a single message to test if receiver is getting data
   delay(2); //Wait for a bit to keep serial data from saturating
 }
