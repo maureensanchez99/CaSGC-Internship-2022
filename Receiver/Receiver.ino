@@ -23,9 +23,9 @@ double ECG; //ECG value sent from transmitter
 
 #define DHTPIN 7 //pin that DHT22 is connected to
 #define DHTTYPE DHT22
-DHT dht(DHTPIN, DHTTYPE);
+DHT dht(DHTPIN, DHTTYPE); //initializes the DHT22 sensor
 
-float humidity; //stores the humidity value
+float humidity; //stores the humidity value, value is given in Celcsius 
 float temperature; //stores the temperature value
 
 void setup() {
@@ -33,7 +33,7 @@ void setup() {
   radio.begin(); //starts the radio module
   radio.openReadingPipe(1, address); //opens connections between the radio modules
   radio.startListening(); //reciever begins waiting for commands from transmitter Arduino   
-  dht.begin();
+  dht.begin(); //starts the DHT2 module
 }
 
 void loop() {
@@ -42,8 +42,9 @@ void loop() {
   }
   ECG = msg[0];
   Serial.print(ECG);
-  humidity = dht.readHumidity();
-  temperature = dht.readTemperature();
+  humidity = dht.readHumidity(); //takes measurement of humidty
+  temperature = dht.readTemperature(); //takes measurement of humidity
+  displayValues();
 }
 
 double displayValues(){
