@@ -41,13 +41,19 @@ void loop() {
       radio.read(msg, 1); //start displaying data on LCD display
   }
   ECG = msg[0];
-  Serial.print(ECG);
+  //Serial.print(ECG);
   humidity = dht.readHumidity(); //takes measurement of humidty
   temperature = dht.readTemperature(); //takes measurement of humidity
   displayValues();
+  delay(3000);
 }
 
+//displays all the values gathered from the DHT22 sensor
 double displayValues(){
+  Serial.print("Humidity: ");
   Serial.print(humidity);
+  Serial.print("%, Temperature: ");
   Serial.print(temperature);
+  Serial.print(" Celcius");
+  Serial.print("\n");
 }
