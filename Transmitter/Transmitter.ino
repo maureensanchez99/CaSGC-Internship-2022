@@ -15,7 +15,7 @@ RF24 radio(9, 10);
 //constants 
 const byte address = "00001"; //address
 double msg[1]; //message that is being sent to the Aruino receiver with four different data values
-//int msgSize = 4; //size of the message array
+//double msgSize = 4; //size of the message array
 int heartRateMonitorA = 5;
 int heartRateMonitorB = 6; 
 //A0 is where the heart rate sensors sends the data  
@@ -44,10 +44,10 @@ void setup() {
 
 void loop() {
   //gathers measurements to be sent to other Arduino
-  if((digitalRead(10) == 1)||(digitalRead(11) == 1)){ //collects ECG/EKG data
-    msg[0] = '!';
+  if((digitalRead(5) == 1)||(digitalRead(6) == 1)){ //collects ECG/EKG data
+    msg[0] = '!'; //if value is outside range, sets ! as the value
   } else {
-    msg[0] = analogRead(A0);
+    msg[0] = analogRead(A0); //if value
   }
   //radio.write(msg, msgSize); //sends data to other Arduino
   radio.write(msg,1); //sending it off as a single message to test if receiver is getting data
