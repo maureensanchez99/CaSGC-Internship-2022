@@ -2,7 +2,7 @@
 :Date: 23/04/2022
 :License: Public Domain
 
-= Project: Astronaut Health Monitoring System for Long term Space Missions (Receiver)
+= Project: Astronaut Health Monitoring System for Long term Space Missions (Receiver/Base)
 
 Create a monitoring health system for individuals to wear on long term space missions
 
