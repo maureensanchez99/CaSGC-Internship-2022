@@ -6,11 +6,12 @@
 
 #include <SPI.h>;
 #include "RF24.h"
+#include <DHT.h>
 
 /*connected to digital pins (pins with a ~)
   used for setting module into standby or active mode
   switching between transmit or command mode */
-RF24 radio(9, 10);
+RF24 radio(9, 10); //create radio object
 
 //constants 
 const byte address = "00001"; //address
@@ -19,6 +20,9 @@ double msg[1]; //message that is being sent to the Aruino receiver with four dif
 int heartRateMonitorA = 5;
 int heartRateMonitorB = 6; 
 //A0 is where the heart rate sensors sends the data  
+DHT dht(7, DHT22); //creates DHT object 
+int temperature;
+int humidity;
 
 /*
   Hardware Connections (Breakoutboard to Arduino):
