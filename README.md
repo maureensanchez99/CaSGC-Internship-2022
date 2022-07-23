@@ -13,3 +13,4 @@ These are past Arduino projects that we referenced to when creating the hardware
 - <a href="https://create.arduino.cc/projecthub/DKARDU/how-to-make-blood-oxygen-body-temperature-measurement-583c31">Blood Oxygen & Body Temperature Measurer</a>
 - <a href="https://create.arduino.cc/projecthub/protocentral/measure-spo2-heart-rate-and-bp-trends-bpt-using-arduino-bcc316">Measure SPO2 Heart Rate & BP Trends</a>
 - <a href="https://create.arduino.cc/projecthub/mafzal/temperature-monitoring-with-dht22-arduino-15b013">DHT22 Sensor </a>
+- <a href="https://github.com/bitwiseAr/Curso-Arduino-desde-cero/blob/master/Capitulo51/Capitulo51-Programa2-Remoto.txt">bitwise Ar project</a>
