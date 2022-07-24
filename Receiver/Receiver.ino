@@ -5,52 +5,37 @@ Purpose: receives data from transmitter Arduino, measures data from attached sen
 */
 
 #include <SPI.h>
-#include "RF24.h"
-#include <Wire.h>
-#include "MAX30105.h"
-#include <DHT.h>;
+#include "RH_NRF24.h"
+//#include <Wire.h>
+//#include "MAX30105.h"
+
 
 /*connected to digital pins (pins with a ~)
 used for setting module into standby or active mode
 switching between transmit or command mode */
-RF24 radio(9,10); 
+RH_NRF24 radio(9,10); //create radio object 
 
-//constants and variables
-const byte address = "00001"; //address 
-double msg[1]; //message that is being sent to the Aruino receiver with four different data values
-int msgSize = 4; //size of the message array
-double ECG; //ECG value sent from transmitter 
+//constants 
+const uint8_t address = 2; //address
+String msg; //message that is being sent to the Aruino receiver with four different data valuesr
 
-#define DHTPIN 7 //pin that DHT22 is connected to
-#define DHTTYPE DHT22
-DHT dht(DHTPIN, DHTTYPE); //initializes the DHT22 sensor
-
-double humidity; //stores the humidity value, value is given in Celcsius 
-double temperature; //stores the temperature value
+String humidity; //stores the humidity value, value is given in Celcsius 
+String temperature; //stores the temperature value
 
 void setup() {
   Serial.begin(9600);
-  radio.begin(); //starts the radio module
-  radio.openReadingPipe(1, address); //opens connections between the radio modules
-  radio.startListening(); //reciever begins waiting for commands from transmitter Arduino   
-  dht.begin(); //starts the DHT2 module
+  radio.init(); //starts the radio module
+  radio.setChannel(address); //opens connections between the radio modules  
 }
 
-void loop() {
-  //if (radio.available()){ //checks to see if radio is able to connect
-      radio.read(msg, 1); //start displaying data on LCD display
-  //}
-  ECG = msg[0];
-  humidity = dht.readHumidity(); //takes measurement of humidty
-  temperature = dht.readTemperature(); //takes measurement of humidity
+void loop(){
+  //read values from msg
   displayValues();
   delay(3000);
 }
 
 //displays all the values gathered from the DHT22 sensor onto the Arduino serial monitor
 double displayValues(){
-  Serial.print("ECG value: ");
-  Serial.print(ECG);
   Serial.print("\nHumidity: ");
   Serial.print(humidity);
   Serial.print("%, Temperature: ");
