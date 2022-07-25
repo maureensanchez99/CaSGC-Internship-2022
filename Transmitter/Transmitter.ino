@@ -15,12 +15,11 @@ RH_NRF24 radio(9, 10); //create radio object
 
 //constants 
 const uint8_t address = 2; //address
-String msg; //message that is being sent to the Aruino receiver with four different data values
 
 DHT dht(7, DHT22); //creates DHT object at pin 7
 int temp; //variable that holds the temperature value
 int humid; //variable that holds the humidity value
-String stringMsg;
+String stringMsg; //message that is being sent to the Aruino receiver with four different data values
 String stringTemp; //string that holds the temperature value
 String stringHumid; //string that holds the humidity value
 
@@ -45,6 +44,6 @@ void loop() {
   
   char *msg = stringMsg.c_str(); //converts strinMsg into C language 
   
-  radio.send((uint8_t *)msg, strlen(msg)); //sending it off as a single message to test if receiver is getting data
+  radio.send(msg, strlen(msg)); //sending it off as a single message to test if receiver is getting data
   delay(2); //Wait for a bit to keep serial data from saturating
 }
