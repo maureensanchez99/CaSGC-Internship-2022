@@ -9,7 +9,6 @@ Purpose: receives data from transmitter Arduino, measures data from attached sen
 //#include <Wire.h>
 //#include "MAX30105.h"
 
-
 /*connected to digital pins (pins with a ~)
 used for setting module into standby or active mode
 switching between transmit or command mode */
@@ -17,7 +16,7 @@ RH_NRF24 radio(9,10); //create radio object
 
 //constants 
 const uint8_t address = 2; //address
-String msg; //message that is being sent to the Aruino receiver with four different data valuesr
+String msg; //message that is being sent to the Aruino receiver with different data values
 
 String humidity; //stores the humidity value, value is given in Celcsius 
 String temperature; //stores the temperature value
@@ -29,7 +28,18 @@ void setup() {
 }
 
 void loop(){
+  uint8_t buf[5];
+  uint8_t buflen = sizeof(buf);
   //read values from msg
+  if(radio.recv(buf, &buflen)){
+    msg = String((char*)buf);
+    for(int i = 0; i < msg.length(); i++){
+      temperature = msg.substring(0,i);
+      humidity = msg.substring(i+1);
+      break;
+    }
+  }
+  
   displayValues();
   delay(3000);
 }
