@@ -4,52 +4,48 @@ Reference Code is cited in the README file of the repository
 Purpose: receives data from transmitter Arduino, measures data from attached sensors, displays data onto LCD display 
 */
 
-#include <SPI.h>
-#include "RH_NRF24.h"
-//#include <Wire.h>
-//#include "MAX30105.h"
+#include <SPI.h>  // incluye libreria SPI para comunicacion con el modulo
+#include <RH_NRF24.h> // incluye la seccion NRF24 de la libreria RadioHead
 
-/*connected to digital pins (pins with a ~)
-used for setting module into standby or active mode
-switching between transmit or command mode */
-RH_NRF24 radio(9,10); //create radio object 
+RH_NRF24 nrf24(9,10);   // crea objeto con valores por defecto para bus SPI
+      // y pin digital numero 8 para CE
 
-//constants 
-const uint8_t address = 2; //address
-String msg; //message that is being sent to the Aruino receiver with different data values
+String str_datos; // string para almacenar valores separados por coma
+String str_temperatura; // string para almacenar valor individual de temperatura
+String str_humedad; // string para almacenar valor individual de humedad  
 
-String humidity; //stores the humidity value, value is given in Celcsius 
-String temperature; //stores the temperature value
-
-void setup() {
-  Serial.begin(9600);
-  radio.init(); //starts the radio module
-  radio.setChannel(address); //opens connections between the radio modules  
+void setup() 
+{
+  Serial.begin(9600);   // inicializa monitor serie a 9600 bps
+  if (!nrf24.init())    // si falla inicializacion de modulo muestra texto
+    Serial.println("fallo de inicializacion");
+  if (!nrf24.setChannel(2)) // si falla establecer canal muestra texto
+    Serial.println("fallo en establecer canal");
+  if (!nrf24.setRF(RH_NRF24::DataRate250kbps, RH_NRF24::TransmitPower0dBm)) // si falla opciones 
+    Serial.println("fallo en opciones RF");             // RF muestra texto
+     
+    Serial.println("Base iniciada");  // texto para no comenzar con ventana vacia
 }
 
-void loop(){
-  uint8_t buf[5];
-  uint8_t buflen = sizeof(buf);
-  //read values from msg
-  if(radio.recv(buf, &buflen)){
-    msg = String((char*)buf);
-    for(int i = 0; i < msg.length(); i++){
-      temperature = msg.substring(0,i);
-      humidity = msg.substring(i+1);
-      break;
+void loop()
+{
+    uint8_t buf[5];     // buffer de 5 posiciones
+    uint8_t buflen = sizeof(buf); // obtiene longitud del buffer
+    
+    if (nrf24.recv(buf, &buflen)) // si hay informacion valida disponible
+    { 
+      str_datos = String((char*)buf); // almacena en str_datos datos recibidos
+      
+      for (int i = 0; i < str_datos.length(); i++) {  // bucle recorre str_datos desde el inicio
+        if (str_datos.substring(i, i+1) == ",") { // si en el indice hay una coma
+          str_temperatura = str_datos.substring(0, i);  // obtiene desde indice 0 hasta una posicion anterior
+          str_humedad = str_datos.substring(i+1); // obtiene desde indice posterior a la coma
+          break;          // hasta el final del string y sale del bucle
+      }
     }
-  }
-  
-  displayValues();
-  delay(3000);
-}
-
-//displays all the values gathered from the DHT22 sensor onto the Arduino serial monitor
-double displayValues(){
-  Serial.print("\nHumidity: ");
-  Serial.print(humidity);
-  Serial.print("%, Temperature: ");
-  Serial.print(temperature);
-  Serial.print(" Celcius");
-  Serial.print("\n");
+    Serial.print("Temperatura: ");  // muestra texto
+    Serial.print(str_temperatura);  // muestra valor de la variable
+    Serial.print(" Humedad: "); // muestra texto
+    Serial.println(str_humedad);  // muestra valor de la variabl
+    }
 }
